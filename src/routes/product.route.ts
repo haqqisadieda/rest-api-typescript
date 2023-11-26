@@ -12,7 +12,8 @@ ProductRouter.get('/', (req: Request, res: Response, next: NextFunction) => {
 ProductRouter.post('/', (req: Request, res: Response, next: NextFunction) => {
   const { error, value } = createProductValidation(req.body)
   if (error) {
-    logger.error('ERR: Product-Create = ' + error.details[0].message)
+    const errorMessage: string = error.details[0].message
+    logger.error('ERR: Product-Create = ', errorMessage)
     return res.status(422).send({ status: false, statusCode: 422, message: error.details[0].message, data: {} })
   }
   logger.info('Success add new product')
