@@ -17,3 +17,7 @@ export const getProductFromDB = async () => {
       logger.error(error)
     })
 }
+
+export const getProductById = async (id: string) => {
+  return await productModel.findOne({ product_id: id })
+}
