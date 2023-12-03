@@ -39,7 +39,7 @@ export const createSession = async (req: Request, res: Response) => {
     if (!isValid) return res.status(401).send({ status: false, statusCode: 401, message: 'Invalid email or password' })
 
     const accessToken = signJWT({ ...user }, { expiresIn: '1d' })
-    return res.status(200).send({ status: true, statusCode: 200, message: accessToken })
+    return res.status(200).send({ status: true, statusCode: 200, message: 'Login success', data: { accessToken } })
   } catch (error: any) {
     logger.error(`ERR: Auth - Create Session = ${error.message}`)
     return res.status(422).send({ status: false, statsuCode: 422, message: error.message })

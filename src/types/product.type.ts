@@ -1,6 +1,6 @@
 export default interface ProductType {
   product_id: string
   name: string
-  princ: number
+  price: number
   size: string
 }

@@ -21,7 +21,7 @@ export const createProduct = async (req: Request, res: Response, next: NextFunct
   try {
     await addProductToDB(value)
     logger.info('Success add new product')
-    res.status(200).send({ status: true, statusCode: 200, message: 'Add product success' })
+    res.status(201).send({ status: true, statusCode: 201, message: 'Add product success' })
   } catch (error) {
     const errorMessage: any = error
     logger.error(`ERR: Product - Create = ${errorMessage}`)
